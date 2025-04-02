@@ -160,7 +160,6 @@ class _CalculateScreenState extends State<CalculateScreen> {
                         onResult: (String value) {
                           setState(() {
                             resulto = value;
-                            // Add to history when result is calculated
                             Provider.of<HistoryProvider>(context, listen: false)
                                 .addCalculation(expresso, resulto);
                           });

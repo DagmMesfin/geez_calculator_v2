@@ -6,11 +6,11 @@ class AppThemes {
     primaryColor: Colors.orange,
 
     // Define Custom Colors
-    scaffoldBackgroundColor: Color(0xFFF6F8F9),
-    appBarTheme: AppBarTheme(backgroundColor: Color(0xFFF6F8F9)),
+    scaffoldBackgroundColor: const Color(0xFFF6F8F9),
+    appBarTheme: const AppBarTheme(backgroundColor: Color(0xFFF6F8F9)),
 
     // Custom Color Palette
-    colorScheme: ColorScheme.light(
+    colorScheme: const ColorScheme.light(
         primary: Color(0xFFFF9600), // Main app color
         secondary: Color(0xFF2ACA74),
         tertiary: Color(0xFFF8EDEE),
@@ -25,11 +25,11 @@ class AppThemes {
     brightness: Brightness.dark,
     primaryColor: Colors.orange,
 
-    scaffoldBackgroundColor: Color(0xFF101113),
-    appBarTheme: AppBarTheme(backgroundColor: Color(0xFF101113)),
+    scaffoldBackgroundColor: const Color(0xFF101113),
+    appBarTheme: const AppBarTheme(backgroundColor: Color(0xFF101113)),
 
     // Custom Color Palette
-    colorScheme: ColorScheme.dark(
+    colorScheme: const ColorScheme.dark(
         primary: Color(0xFFFF9600), // Main app color
         secondary: Color(0xFF2ACA74),
         tertiary: Color(0xFF291218),

@@ -101,16 +101,16 @@ flutter:
 
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/icons/Frame 5.png
+  image: assets/icons/logo_splash.png
   branding: assets/icons/Dagi_logo_light.png
   color_dark: "#121212"
-  image_dark: assets/icons/Frame 5.png
+  image_dark: assets/icons/logo_splash.png
   branding_dark: assets/icons/Dagi_logo.png
 
   android_12:
-    image: assets/icons/Frame 5.png
+    image: assets/icons/logo_splash.png
     icon_background_color: "#ffffff"
-    image_dark: assets/icons/Frame 5.png
+    image_dark: assets/icons/logo_splash.png
     icon_background_color_dark: "#121212"
 
   web: false

@@ -7,7 +7,6 @@ class AboutMeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Access the theme and colors via ThemeNotifier
     ThemeData theme = Theme.of(context);
     ColorScheme colors = theme.colorScheme;
 
@@ -22,11 +21,10 @@ class AboutMeScreen extends StatelessWidget {
         ),
         backgroundColor: colors.surface,
         iconTheme: IconThemeData(color: colors.onSurface),
-        elevation: 0, // Match your AppThemes style
+        elevation: 0,
       ),
       body: Container(
-        color: theme
-            .scaffoldBackgroundColor, // Use scaffoldBackgroundColor from theme
+        color: theme.scaffoldBackgroundColor,
         padding: const EdgeInsets.all(20),
         child: SingleChildScrollView(
           child: Column(
@@ -76,7 +74,7 @@ class AboutMeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                'Hi, I’m Dagim Mesfin, a passionate developer with a love for creating useful and intuitive applications. I specialize in Flutter and enjoy building apps that solve real-world problems. In my free time, I explore new technologies, contribute to open-source projects, and share my knowledge with the community.',
+                'Hi there👋, I\'m Dagim Mesfin, a passionate developer with a love for creating useful and intuitive applications. I specialize in Flutter and enjoy building apps that solve real-world problems. In my free time, I explore new technologies, contribute to open-source projects, and share my knowledge with the community.',
                 style: TextStyle(
                   fontSize: 16,
                   color: colors.onSurface,
@@ -95,7 +93,7 @@ class AboutMeScreen extends StatelessWidget {
               ),
               const SizedBox(height: 10),
               Text(
-                'I created the Geez Calculator to bridge the gap between traditional Geez numerals and modern arithmetic operations. As someone who values cultural heritage, I wanted to build a tool that allows users to perform calculations using Geez numbers while also providing a seamless conversion to standard numerals. My goal was to make this app both educational and practical, helping users appreciate the beauty of Geez script while performing everyday calculations.',
+                'I created the Geez Calculator to bridge the gap between traditional Geez numerals and modern arithmetic operations. As someone who values cultural heritage, I wanted to build a tool that allows users to perform calculations using Geez numbers while also providing a seamless conversion to standard numerals. My goal was to make this app both experimental, educational and practical, which it needs much more work than what it was anticipated, helping users appreciate the beauty of Geez script and raise awareness about the current status of Ge\'ez numerals.',
                 style: TextStyle(
                   fontSize: 16,
                   color: colors.onSurface,

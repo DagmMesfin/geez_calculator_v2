@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:geez_calculator_v2/screen/funcs.dart';
+import 'package:geez_calculator_v2/misc/funcs.dart';
 import 'package:geez_calculator_v2/widgets/calbutton.dart';
 
 class CalculatorPanel extends StatelessWidget {

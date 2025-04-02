@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:geez_calculator_v2/screen/theme.dart';
+import 'package:geez_calculator_v2/misc/theme.dart';
 
 class ThemeNotifier extends ChangeNotifier {
   ThemeMode _themeMode = ThemeMode.system;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:geez_calculator_v2/screen/calculator.dart';
-import 'package:geez_calculator_v2/screen/converter_screen.dart';
-import 'package:geez_calculator_v2/screen/theme.dart';
-import 'package:geez_calculator_v2/screen/theme_notifier.dart';
+import 'package:geez_calculator_v2/screen/calculator/calculator.dart';
+import 'package:geez_calculator_v2/screen/converter/converter_screen.dart';
+import 'package:geez_calculator_v2/misc/theme.dart';
+import 'package:geez_calculator_v2/state/theme_notifier.dart';
 import 'package:geez_calculator_v2/state/history_provider.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';

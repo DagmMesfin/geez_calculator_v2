@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:geez/geez.dart';
-import 'package:geez_calculator_v2/screen/calculator.dart';
-import 'package:geez_calculator_v2/screen/calculator_panel.dart';
-import 'package:geez_calculator_v2/screen/converter_panel.dart';
-import 'package:geez_calculator_v2/screen/converter_panel_arab.dart';
-import 'package:geez_calculator_v2/screen/theme_notifier.dart';
-import 'package:geez_calculator_v2/widgets/calbutton.dart';
+import 'package:geez_calculator_v2/screen/calculator/calculator.dart';
+// import 'package:geez_calculator_v2/screen/calculator_panel.dart';
+import 'package:geez_calculator_v2/screen/converter/converter_panel.dart';
+import 'package:geez_calculator_v2/screen/converter/converter_panel_arab.dart';
+import 'package:geez_calculator_v2/state/theme_notifier.dart';
+// import 'package:geez_calculator_v2/widgets/calbutton.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 
@@ -26,6 +26,20 @@ class _ConverterScreenState extends State<ConverterScreen> {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     ThemeData theme = Theme.of(context);
     ColorScheme colors = theme.colorScheme;
+
+    double _getResultFontSize(String result) {
+      int length = result.length;
+      if (length <= 9) {
+        return 40.0; // Default font size
+      } else if (length <= 12) {
+        return 30.0; // Slightly smaller
+      } else if (length <= 20) {
+        return 25.0; // Even smaller
+      } else {
+        return 20.0; // Smallest size for very long results
+      }
+    }
+
     return Scaffold(
       appBar: AppBar(
         actions: [
@@ -40,8 +54,10 @@ class _ConverterScreenState extends State<ConverterScreen> {
             color: colors.onSurface,
           ),
           IconButton(
-            onPressed: () {},
-            icon: Icon(Ionicons.settings, size: 30),
+            onPressed: () {
+              Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
+            },
+            icon: const Icon(Ionicons.moon, size: 30),
             color: colors.onSurface,
           ),
         ],
@@ -64,9 +80,17 @@ class _ConverterScreenState extends State<ConverterScreen> {
                     Row(
                       children: [
                         Text(
-                          isGeez ? geezNum : arabNum,
+                          isGeez
+                              ? geezNum == ""
+                                  ? "አልቦ"
+                                  : geezNum
+                              : arabNum,
                           style: TextStyle(
-                              fontSize: 40,
+                              fontSize: _getResultFontSize(isGeez
+                                  ? geezNum == ""
+                                      ? "አልቦ"
+                                      : geezNum
+                                  : arabNum),
                               fontFamily: isGeez ? "Abay" : "Inter"),
                         ),
                         SizedBox(
@@ -122,9 +146,18 @@ class _ConverterScreenState extends State<ConverterScreen> {
                   ),
                 ),
                 Text(
-                  isGeez ? arabNum : geezNum,
+                  isGeez
+                      ? arabNum
+                      : geezNum == ""
+                          ? "አልቦ"
+                          : geezNum,
                   style: TextStyle(
-                      fontSize: 40, fontFamily: isGeez ? "Inter" : "Abay"),
+                      fontSize: _getResultFontSize(isGeez
+                          ? arabNum
+                          : geezNum == ""
+                              ? "አልቦ"
+                              : geezNum),
+                      fontFamily: isGeez ? "Inter" : "Abay"),
                 ),
               ],
             ),

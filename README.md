@@ -1,6 +1,6 @@
 # Geez Calculator V2
 
-![Geez Calculator Banner](https://drive.google.com/file/d/1YIa85Rt8B9PgIS0zizd6dOBqDGxjR-Sa/view?usp=sharing)  
+![Geez Calculator Banner](https://res.cloudinary.com/dnwep8w04/image/upload/v1743680058/geez_banner_sxnwn8.png)  
 *Bringing Geez Numerals to Life with Flutter*
 
 **Geez Calculator V2** is a sleek and innovative Flutter app designed to bridge the gap between traditional Geez numerals and modern arithmetic operations. Built for Android OS, this app allows users to perform basic calculations using Geez numerals and seamlessly convert between Geez and Arabic numerals. Whether you're a cultural enthusiast, a student, or simply curious about Geez script, this app offers a unique blend of heritage and technology.

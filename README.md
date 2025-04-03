@@ -33,7 +33,7 @@
 
 | Calculator Screen (Light Theme) | Calculator Screen (Dark Theme) | Converter Screen | About Me Page |
 |--------------------------------|--------------------------------|---------------|---------------|
-| ![Calculator Light](https://drive.google.com/file/d/1w3A2H8G8_vRO7yaezNUY3LhPxscfCwVH/view?usp=sharing) | ![Calculator Dark](https://drive.google.com/file/d/1w8eYQyoRzBQlG2yb_TXmNVCVbMeEE3eY/view?usp=sharing) | ![Converter Panel](https://drive.google.com/file/d/1wAdbkO8GbKKY0W78X32MZXK05r7AsKIE/view?usp=sharing) | ![About Me](https://drive.google.com/file/d/1w2mkiSNRxlyDOowvoCo0JtdjnOz4OJlw/view?usp=sharing) |
+| ![Calculator Light](https://res.cloudinary.com/dnwep8w04/image/upload/v1743680058/Screenshot_20250403_141805_hofdue.jpg) | ![Calculator Dark](https://res.cloudinary.com/dnwep8w04/image/upload/v1743680058/Screenshot_20250403_141717_rut6is.jpg) | ![Converter Panel](https://res.cloudinary.com/dnwep8w04/image/upload/v1743680058/Screenshot_20250403_141756_vht13l.jpg) | ![About Me](https://res.cloudinary.com/dnwep8w04/image/upload/v1743680058/Screenshot_20250403_141810_zob2n6.jpg) |
 
 ---
 

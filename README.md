@@ -116,14 +116,3 @@ For questions, suggestions, or feedback, feel free to reach out:
 ---
 
 *Let’s celebrate the beauty of Geez numerals together with Geez Calculator V2!*
-
----
-
-### Notes for Customization
-- **Screenshots:** Replace the placeholder image URLs (e.g., `https://via.placeholder.com/300x600.png?text=Calculator+Light`) with actual screenshots of your app. You can take screenshots from an Android emulator or device and upload them to your repository.
-- **Your Username:** Replace `your-username` with your actual GitHub username in the clone URLs and links.
-- **Your Email:** Update the email address in the "About the Developer" and "Contact" sections with your actual email.
-- **License File:** If you haven’t added a `LICENSE` file to your repository, create one with the MIT License text (or your preferred license) and link to it as shown.
-- **Project Structure:** Adjust the project structure section if your file organization differs.
-
-This README provides a professional and comprehensive overview of your app, making it easy for others to understand, use, and contribute to your project. Let me know if you’d like to add more sections or make adjustments!

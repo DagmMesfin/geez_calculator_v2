@@ -1,7 +1,3 @@
-Below is a well-structured README in Markdown format for your `geez_calculator_v2` GitHub repository. It includes an overview of the app, features, installation instructions, usage, screenshots (placeholders), and contribution guidelines, all tailored to the details you provided about the *Geez Calculator* app.
-
----
-
 # Geez Calculator V2
 
 ![Geez Calculator Banner](https://drive.google.com/file/d/1YIa85Rt8B9PgIS0zizd6dOBqDGxjR-Sa/view?usp=sharing)  

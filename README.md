@@ -47,7 +47,7 @@
 ### Steps
 1. **Clone the Repository**  
    ```bash
-   git clone https://github.com/your-username/geez_calculator_v2.git
+   git clone https://github.com/DagmMesfin/geez_calculator_v2.git
    cd geez_calculator_v2
    ```
 

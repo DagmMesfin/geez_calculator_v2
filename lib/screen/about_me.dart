@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:geez_calculator_v2/state/theme_notifier.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AboutMeScreen extends StatelessWidget {
   const AboutMeScreen({super.key});
@@ -25,7 +26,7 @@ class AboutMeScreen extends StatelessWidget {
       ),
       body: Container(
         color: theme.scaffoldBackgroundColor,
-        padding: const EdgeInsets.all(20),
+        padding: EdgeInsets.all(20.r),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -34,18 +35,18 @@ class AboutMeScreen extends StatelessWidget {
               Row(
                 children: [
                   CircleAvatar(
-                    radius: 60,
+                    radius: 60.r,
                     backgroundColor: colors.primary,
                     backgroundImage: AssetImage('assets/images/profile.jpg'),
                   ),
-                  const SizedBox(width: 20),
+                  SizedBox(width: 20.w),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Dagim Mesfin',
                         style: TextStyle(
-                          fontSize: 24,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.bold,
                           color: colors.onSurface,
                         ),
@@ -53,7 +54,7 @@ class AboutMeScreen extends StatelessWidget {
                       Text(
                         'Mobile App Developer',
                         style: TextStyle(
-                          fontSize: 16,
+                          fontSize: 16.sp,
                           color: colors.onSurface.withOpacity(0.7),
                         ),
                       ),
@@ -61,64 +62,64 @@ class AboutMeScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 30),
+              SizedBox(height: 30.h),
 
               // About Me Section
               Text(
                 'About Me',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   color: colors.onSurface,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Text(
                 'Hi there👋, I\'m Dagim Mesfin, a passionate developer with a love for creating useful and intuitive applications. I specialize in Flutter and enjoy building apps that solve real-world problems. In my free time, I explore new technologies, contribute to open-source projects, and share my knowledge with the community.',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   color: colors.onSurface,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Motive for Creating the App
               Text(
                 'Motive for Creating Geez Calculator',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   color: colors.onSurface,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Text(
                 'I created the Geez Calculator to bridge the gap between traditional Geez numerals and modern arithmetic operations. As someone who values cultural heritage, I wanted to build a tool that allows users to perform calculations using Geez numbers while also providing a seamless conversion to standard numerals. My goal was to make this app both experimental, educational and practical, which it needs much more work than what it was anticipated, helping users appreciate the beauty of Geez script and raise awareness about the current status of Ge\'ez numerals.',
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 16.sp,
                   color: colors.onSurface,
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Contact Information
               Text(
                 'Contact Me',
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: 20.sp,
                   fontWeight: FontWeight.bold,
                   color: colors.onSurface,
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Row(
                 children: [
                   Icon(Icons.email, color: colors.primary),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Text(
                     'dagmmesfin99@gmail.com',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: colors.onSurface,
                     ),
                   ),
@@ -127,11 +128,11 @@ class AboutMeScreen extends StatelessWidget {
               Row(
                 children: [
                   Icon(Icons.telegram, color: colors.primary),
-                  const SizedBox(width: 10),
+                  SizedBox(width: 10.w),
                   Text(
                     'DageronDeEthiopas',
                     style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sp,
                       color: colors.onSurface,
                     ),
                   ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geez_calculator_v2/widgets/calbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConverterArabPanel extends StatelessWidget {
   final String arabNum;
@@ -23,7 +24,7 @@ class ConverterArabPanel extends StatelessWidget {
             onKeyTap(""); // Reset arabNum
           }),
 
-          Container(width: 20, height: 20),
+          Container(width: 20.w, height: 20.h),
 
           // Backspace button
           CalButton("<=", colorScheme.onSurface, colorScheme.surface, "Inter",
@@ -53,12 +54,12 @@ class ConverterArabPanel extends StatelessWidget {
       return TableRow(
         children: row.map((num) {
           if (num.isEmpty) {
-            return Container(width: 20, height: 20);
+            return Container(width: 20.w, height: 20.h);
           }
           return CalButton(
               num, colorScheme.onSurface, colorScheme.surface, "Inter", () {
             onKeyTap(arabNum == "0" ? num : arabNum + num);
-          }, fontsize: 33);
+          }, fontsize: 33.sp);
         }).toList(),
       );
     }).toList();

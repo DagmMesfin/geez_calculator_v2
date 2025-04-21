@@ -42,6 +42,9 @@ dependencies:
     git:
       url: https://github.com/DagmMesfin/geez-sdk.git
       ref: main
+  flutter_screenutil: ^5.9.3
+  rational: ^2.1.0
+  fraction: ^2.0.1
 
 
 dev_dependencies:

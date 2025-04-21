@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:geez_calculator_v2/widgets/calbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConverterPanel extends StatelessWidget {
   final String geezNum;
@@ -23,9 +24,9 @@ class ConverterPanel extends StatelessWidget {
             onKeyTap(""); // Reset geezNum
           }),
 
-          Container(width: 20, height: 20),
-          Container(width: 20, height: 20),
-          Container(width: 20, height: 20),
+          Container(width: 20.w, height: 20.h),
+          Container(width: 20.w, height: 20.h),
+          Container(width: 20.w, height: 20.h),
 
           // Backspace button
           CalButton("<=", colorScheme.onSurface, colorScheme.surface, "Calibri",
@@ -57,7 +58,7 @@ class ConverterPanel extends StatelessWidget {
           return CalButton(
               num, colorScheme.onSurface, colorScheme.surface, "Abay", () {
             onKeyTap(geezNum + num);
-          }, fontsize: 33);
+          }, fontsize: 33.sp);
         }).toList(),
       );
     }).toList();

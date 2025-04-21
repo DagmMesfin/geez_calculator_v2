@@ -7,6 +7,7 @@ import 'package:geez_calculator_v2/state/history_provider.dart';
 import 'package:geez_calculator_v2/widgets/calbutton.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CalculateScreen extends StatefulWidget {
   const CalculateScreen({super.key});
@@ -18,28 +19,28 @@ class CalculateScreen extends StatefulWidget {
 class _CalculateScreenState extends State<CalculateScreen> {
   String expresso = "";
   String resulto = "";
+  bool showGeezResult = false;
 
   @override
   Widget build(BuildContext context) {
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     ThemeData theme = Theme.of(context);
     ColorScheme colors = theme.colorScheme;
-    Size size = MediaQuery.of(context).size;
 
     double _getResultFontSize(String result) {
       int length = result.length;
       if (length <= 10) {
-        return 50.0; // Default font size
+        return 50.sp;
       } else if (length <= 15) {
-        return 40.0; // Slightly smaller
+        return 40.sp;
       } else if (length <= 20) {
-        return 30.0; // Even smaller
+        return 30.sp;
       } else {
-        return 24.0; // Smallest size for very long results
+        return 24.sp;
       }
     }
 
-    double historyPanelHeight = size.height * 0.55;
+    double historyPanelHeight = 0.55.sh;
 
     return Scaffold(
       appBar: AppBar(
@@ -53,7 +54,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
                 MaterialPageRoute(builder: (context) => ConverterScreen()),
               );
             },
-            icon: const Icon(Icons.compare_arrows_rounded, size: 30),
+            icon: Icon(Icons.compare_arrows_rounded, size: 30.sp),
             color: colors.onSurface,
           ),
           IconButton(
@@ -63,14 +64,14 @@ class _CalculateScreenState extends State<CalculateScreen> {
                 MaterialPageRoute(builder: (context) => AboutMeScreen()),
               );
             },
-            icon: const Icon(Icons.info_outline, size: 30),
+            icon: Icon(Icons.info_outline, size: 30.sp),
             color: colors.onSurface,
           ),
           IconButton(
             onPressed: () {
               Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
             },
-            icon: const Icon(Ionicons.moon, size: 30),
+            icon: Icon(Ionicons.moon, size: 30.sp),
             color: colors.onSurface,
           ),
         ],
@@ -80,7 +81,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
           Column(
             children: [
               Container(
-                width: size.width - 33,
+                width: 1.sw - 33.w,
                 alignment: Alignment.centerRight,
                 child: Column(
                   children: [
@@ -89,15 +90,15 @@ class _CalculateScreenState extends State<CalculateScreen> {
                         Text(
                           expresso,
                           style: TextStyle(
-                            fontSize: 33,
+                            fontSize: 33.sp,
                             fontFamily: "Abay",
-                            color: colors.onSurface, // Use theme color
+                            color: colors.onSurface,
                           ),
                         ),
-                        const SizedBox(width: 2),
+                        SizedBox(width: 2.w),
                         Container(
-                          height: 40,
-                          width: 2,
+                          height: 40.h,
+                          width: 2.w,
                           color: colors.primary,
                         ),
                       ],
@@ -105,24 +106,25 @@ class _CalculateScreenState extends State<CalculateScreen> {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Container(
-                width: size.width - 33,
-                height: 60,
+                width: 1.sw - 33.w,
+                height: 60.h,
                 alignment: Alignment.centerRight,
                 child: Text(
                   resulto,
                   style: TextStyle(
                     fontSize: _getResultFontSize(resulto),
-                    color: colors.onSurface, // Use theme color
+                    fontFamily: showGeezResult ? "Abay" : "Roboto",
+                    color: colors.onSurface,
                   ),
                 ),
               ),
-              const SizedBox(height: 40),
+              SizedBox(height: 40.h),
               Expanded(
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                      EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
                   alignment: Alignment.bottomCenter,
                   child: Column(
                     children: [
@@ -132,8 +134,8 @@ class _CalculateScreenState extends State<CalculateScreen> {
                           IconButton(
                             icon: Icon(
                               Icons.history_rounded,
-                              size: 50,
-                              color: colors.onSurface, // Use theme color
+                              size: 45.sp,
+                              color: colors.onSurface,
                             ),
                             onPressed: () {
                               Provider.of<HistoryProvider>(context,
@@ -143,8 +145,13 @@ class _CalculateScreenState extends State<CalculateScreen> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 14),
+                      SizedBox(height: 14.h),
                       CalculatorPanel(
+                        onShowGeezResult: (bool value) {
+                          setState(() {
+                            showGeezResult = value;
+                          });
+                        },
                         colors: colors,
                         expresso: expresso,
                         resulto: resulto,
@@ -164,6 +171,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                 .addCalculation(expresso, resulto);
                           });
                         },
+                        showGeezResult: showGeezResult,
                       ),
                     ],
                   ),
@@ -171,39 +179,36 @@ class _CalculateScreenState extends State<CalculateScreen> {
               ),
             ],
           ),
-          // Sliding History Panel
           Consumer<HistoryProvider>(
             builder: (context, historyProvider, child) {
               return AnimatedPositioned(
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
                 bottom: 0,
-                right: historyProvider.isHistoryVisible ? 0 : -300,
-                width: 300,
+                right: historyProvider.isHistoryVisible ? 0 : -300.w,
+                width: 300.w,
                 height: historyPanelHeight,
                 child: Container(
-                  color: colors.surface, // Use theme surface color
+                  color: colors.surface,
                   child: Column(
                     children: [
                       Container(
-                        padding: const EdgeInsets.all(10),
-                        color: colors
-                            .tertiary, // Use theme tertiary color for header
+                        padding: EdgeInsets.all(10.r),
+                        color: colors.tertiary,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
                               'History',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 20.sp,
                                 fontWeight: FontWeight.bold,
                                 color: colors.onSurface,
                               ),
                             ),
                             TextButton(
                               style: TextButton.styleFrom(
-                                foregroundColor: colors
-                                    .onTertiary, // Use onTertiary for text
+                                foregroundColor: colors.onTertiary,
                               ),
                               onPressed: () {
                                 historyProvider.clearHistory();
@@ -227,13 +232,13 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                 itemBuilder: (context, index) {
                                   final calc = historyProvider.history[index];
                                   return Container(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 8, horizontal: 12),
+                                    padding: EdgeInsets.symmetric(
+                                        vertical: 8.h, horizontal: 12.w),
                                     decoration: BoxDecoration(
                                       border: Border(
                                         bottom: BorderSide(
-                                          color: colors.onSurface.withOpacity(
-                                              0.2), // Subtle divider
+                                          color:
+                                              colors.onSurface.withOpacity(0.2),
                                         ),
                                       ),
                                     ),
@@ -244,15 +249,15 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                         Text(
                                           calc.expression,
                                           style: TextStyle(
-                                            fontSize: 14,
+                                            fontSize: 14.sp,
                                             color: colors.onSurface,
                                           ),
                                         ),
-                                        const SizedBox(height: 4),
+                                        SizedBox(height: 4.h),
                                         Text(
                                           calc.result,
                                           style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 20.sp,
                                             fontWeight: FontWeight.bold,
                                             color: colors.onSurface,
                                           ),
@@ -260,7 +265,7 @@ class _CalculateScreenState extends State<CalculateScreen> {
                                         Text(
                                           _formatTimestamp(calc.timestamp),
                                           style: TextStyle(
-                                            fontSize: 10,
+                                            fontSize: 10.sp,
                                             color: colors.onSurface
                                                 .withOpacity(0.7),
                                           ),

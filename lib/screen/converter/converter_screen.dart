@@ -8,6 +8,7 @@ import 'package:geez_calculator_v2/state/theme_notifier.dart';
 // import 'package:geez_calculator_v2/widgets/calbutton.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ConverterScreen extends StatefulWidget {
   const ConverterScreen({super.key});
@@ -22,7 +23,6 @@ class _ConverterScreenState extends State<ConverterScreen> {
   var arabNum = "";
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     ThemeNotifier themeNotifier = Provider.of<ThemeNotifier>(context);
     ThemeData theme = Theme.of(context);
     ColorScheme colors = theme.colorScheme;
@@ -30,13 +30,13 @@ class _ConverterScreenState extends State<ConverterScreen> {
     double _getResultFontSize(String result) {
       int length = result.length;
       if (length <= 9) {
-        return 40.0; // Default font size
+        return 40.sp; // Default font size
       } else if (length <= 12) {
-        return 30.0; // Slightly smaller
+        return 30.sp; // Slightly smaller
       } else if (length <= 20) {
-        return 25.0; // Even smaller
+        return 25.sp; // Even smaller
       } else {
-        return 20.0; // Smallest size for very long results
+        return 20.sp; // Smallest size for very long results
       }
     }
 
@@ -50,14 +50,14 @@ class _ConverterScreenState extends State<ConverterScreen> {
                 MaterialPageRoute(builder: (context) => CalculateScreen()),
               );
             },
-            icon: Icon(Icons.calculate, size: 30),
+            icon: Icon(Icons.calculate, size: 30.sp),
             color: colors.onSurface,
           ),
           IconButton(
             onPressed: () {
               Provider.of<ThemeNotifier>(context, listen: false).toggleTheme();
             },
-            icon: const Icon(Ionicons.moon, size: 30),
+            icon: Icon(Ionicons.moon, size: 30.sp),
             color: colors.onSurface,
           ),
         ],
@@ -65,15 +65,15 @@ class _ConverterScreenState extends State<ConverterScreen> {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(10),
-            width: size.width * 0.8,
+            padding: EdgeInsets.all(10.r),
+            width: 0.8.sw,
             alignment: Alignment.centerRight,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   isGeez ? "ግእዝ" : "ዓረብ",
-                  style: TextStyle(fontSize: 40, fontFamily: "Abay"),
+                  style: TextStyle(fontSize: 40.sp, fontFamily: "Abay"),
                 ),
                 Column(
                   children: [
@@ -94,11 +94,11 @@ class _ConverterScreenState extends State<ConverterScreen> {
                               fontFamily: isGeez ? "Abay" : "Inter"),
                         ),
                         SizedBox(
-                          width: 2,
+                          width: 2.w,
                         ),
                         Container(
-                          height: 40,
-                          width: 2,
+                          height: 40.h,
+                          width: 2.w,
                           color: colors.primary,
                         ),
                       ],
@@ -109,97 +109,94 @@ class _ConverterScreenState extends State<ConverterScreen> {
             ),
           ),
           SizedBox(
-            height: 70,
-            width: 70,
+            height: 70.h,
+            width: 70.w,
             child: GestureDetector(
               onTap: () {
                 setState(() {
                   isGeez = !isGeez;
                 });
-                // isGeez = !isGeez;
               },
               child: Container(
                 decoration: BoxDecoration(
                   color: colors.surface,
-                  borderRadius: BorderRadius.circular(70),
+                  borderRadius: BorderRadius.circular(70.r),
                 ),
                 child: Icon(
                   Icons.compare_arrows_rounded,
-                  size: 60,
+                  size: 60.sp,
                   color: colors.onSurface,
                 ),
               ),
             ),
           ),
           Container(
-            padding: EdgeInsets.all(10),
-            width: size.width * 0.8,
+            padding: EdgeInsets.all(10.r),
+            width: 0.8.sw,
             alignment: Alignment.centerRight,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   isGeez ? "ዓረብ" : "ግእዝ",
-                  style: TextStyle(
-                    fontSize: 40,
-                    fontFamily: "Abay",
-                  ),
+                  style: TextStyle(fontSize: 40.sp, fontFamily: "Abay"),
                 ),
-                Text(
-                  isGeez
-                      ? arabNum
-                      : geezNum == ""
-                          ? "አልቦ"
-                          : geezNum,
-                  style: TextStyle(
-                      fontSize: _getResultFontSize(isGeez
-                          ? arabNum
-                          : geezNum == ""
-                              ? "አልቦ"
-                              : geezNum),
-                      fontFamily: isGeez ? "Inter" : "Abay"),
+                Column(
+                  children: [
+                    Row(
+                      children: [
+                        Text(
+                          isGeez
+                              ? arabNum
+                              : geezNum == ""
+                                  ? "አልቦ"
+                                  : geezNum,
+                          style: TextStyle(
+                              fontSize: _getResultFontSize(isGeez
+                                  ? arabNum
+                                  : geezNum == ""
+                                      ? "አልቦ"
+                                      : geezNum),
+                              fontFamily: isGeez ? "Inter" : "Abay"),
+                        ),
+                        SizedBox(
+                          width: 2.w,
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ],
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20.h),
           Expanded(
-              child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-            alignment: Alignment.bottomCenter,
-            // color: Colors.amber,
-            child: Column(
-              children: [
-                SizedBox(
-                  height: 50,
-                ),
-                isGeez
-                    ? ConverterPanel(
-                        colorScheme: colors,
-                        geezNum: geezNum,
-                        onKeyTap: (String value) {
-                          setState(() {
-                            geezNum = value;
-                            arabNum = value.toArabic().toString();
-                          });
-                        },
-                      )
-                    : ConverterArabPanel(
-                        colorScheme: colors,
-                        arabNum: arabNum,
-                        onKeyTap: (String value) {
-                          setState(() {
-                            arabNum = value != "" ? value : "0";
-                            geezNum =
-                                int.parse(arabNum).toGeez(); //convert int;
-                          });
-                        },
-                      ),
-              ],
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 25.h),
+              alignment: Alignment.bottomCenter,
+              child: isGeez
+                  ? ConverterPanel(
+                      colorScheme: colors,
+                      geezNum: geezNum,
+                      onKeyTap: (String value) {
+                        setState(() {
+                          geezNum = value;
+                          arabNum = value.toArabic().toString();
+                        });
+                      },
+                    )
+                  : ConverterArabPanel(
+                      colorScheme: colors,
+                      arabNum: arabNum,
+                      onKeyTap: (String value) {
+                        setState(() {
+                          arabNum = value != "" ? value : "0";
+                          geezNum = int.parse(arabNum).toGeez();
+                        });
+                      },
+                    ),
             ),
-          ))
+          ),
         ],
       ),
     );
